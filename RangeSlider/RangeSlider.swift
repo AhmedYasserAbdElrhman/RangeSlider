@@ -36,7 +36,7 @@ class RangeSliderTrackLayer: CALayer {
     }
 }
 
-class RangeSliderThumbLayer: CALayer {
+public class RangeSliderThumbLayer: CALayer {
     
     var highlighted: Bool = false {
         didSet {
@@ -178,8 +178,8 @@ public class RangeSlider: UIControl {
     fileprivate var previouslocation = CGPoint()
     
     fileprivate let trackLayer = RangeSliderTrackLayer()
-    fileprivate let lowerThumbLayer = RangeSliderThumbLayer()
-    fileprivate let upperThumbLayer = RangeSliderThumbLayer()
+    public let lowerThumbLayer = RangeSliderThumbLayer()
+    public let upperThumbLayer = RangeSliderThumbLayer()
     
     fileprivate var thumbWidth: CGFloat {
         return CGFloat(bounds.height)
