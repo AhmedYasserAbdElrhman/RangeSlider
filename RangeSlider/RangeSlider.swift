@@ -56,7 +56,7 @@ public class RangeSliderThumbLayer: CALayer {
         }
     }
     
-    override func draw(in ctx: CGContext) {
+    public override func draw(in ctx: CGContext) {
         guard let slider = rangeSlider else {
             return
         }
