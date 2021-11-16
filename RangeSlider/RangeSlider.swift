@@ -9,6 +9,10 @@
 import UIKit
 import QuartzCore
 
+public protocol RangeSliderTouchDelegate: NSObjectProtocol {
+    func didEndTouching(_ touch: UITouch?, with event: UIEvent?)
+}
+
 class RangeSliderTrackLayer: CALayer {
     weak var rangeSlider: RangeSlider?
     
@@ -175,6 +179,8 @@ public class RangeSlider: UIControl {
         }
     }
     
+    public weak var delegate: RangeSliderTouchDelegate?
+    
     fileprivate var previouslocation = CGPoint()
     
     fileprivate let trackLayer = RangeSliderTrackLayer()
@@ -289,5 +295,7 @@ public class RangeSlider: UIControl {
     override public func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         lowerThumbLayer.highlighted = false
         upperThumbLayer.highlighted = false
+        delegate?.didEndTouching(touch, with: event)
     }
 }
+
